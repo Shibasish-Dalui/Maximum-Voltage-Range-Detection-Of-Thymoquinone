@@ -1,9 +1,13 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+import os
 
 # Load data
-file_path = 'sample.xlsx'
+
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+file_name = 'sample.xlsx'  # Change this to your file path
+file_path = os.path.join(script_dir, '..', file_name)
 data = pd.read_excel(file_path)
 data = data.apply(pd.to_numeric, errors='coerce')
 data = data.fillna(data.mean())

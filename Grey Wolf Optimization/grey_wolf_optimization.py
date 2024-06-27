@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import os
 
 
 def objective_function(x, data):
@@ -89,17 +90,20 @@ def gwo(objective_function, bounds, dim, pop_size, max_iter, data):
     return alpha, alpha_score, convergence_curve
 
 
-def load_data(filename, exclude_rows):
-    df = pd.read_excel(filename)
+def load_data(filepath, exclude_rows):
+    df = pd.read_excel(filepath)
     df = df.drop(exclude_rows)
     return df.values
 
 
 # Main function
 if __name__ == "__main__":
-    filename = 'sample.xlsx'  # Replace with your actual file name
+    # Get the directory of the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    filename = 'sample.xlsx'  # Change this to your file path
+    filepath = os.path.join(script_dir, '..', filename)
     exclude_rows = [0, 1]  # Replace with the indices of rows to exclude
-    data = load_data(filename, exclude_rows)
+    data = load_data(filepath, exclude_rows)
 
     # Parameters
     bounds = [-10, 10]  # Adjust based on your problem
