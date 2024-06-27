@@ -1,1 +1,1 @@
-# Maximum-Voltage-Range-Detection-Of-Thymoquinone
+# Maximum Voltage Range Detection Of Thymoquinone
