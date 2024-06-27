@@ -3,7 +3,6 @@ import pandas as pd
 
 
 def objective_function(x, data):
-    # Example objective function: Sum of squared differences from the mean of each column
     diff = data - x
     return np.sum(diff ** 2)
 
@@ -88,8 +87,6 @@ def gwo(objective_function, bounds, dim, pop_size, max_iter, data):
         print(f"Iteration: {t+1}, Best Score: {alpha_score}")
 
     return alpha, alpha_score, convergence_curve
-
-# Load dataset from Excel file and exclude specific rows
 
 
 def load_data(filename, exclude_rows):
